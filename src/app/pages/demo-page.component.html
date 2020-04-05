@@ -1,0 +1,52 @@
+<div class="display-flex">
+  <div class="table-container">
+    <h3 class="breadcrumb header">
+      User Activity
+      <div class="breadcrumb-action" (click)="kickoff()">Kick off!</div>
+    </h3>
+
+    <table class="table">
+      <thead class="table-header">
+        <tr class="headers-row">
+          <td class="code">Code</td>
+          <td class="user">User</td>
+          <td class="name">Name</td>
+          <td class="role">Role</td>
+          <td class="logon-time">Logon Time</td>
+          <td class="status">Status</td>
+        </tr>
+      </thead>
+      <tbody class="table-body">
+        <tr class="row" *ngFor="let session of sessions">
+          <th class="code">{{ session?.code }}</th>
+          <td class="user">{{ session?.user }}</td>
+          <td class="name">{{ session?.name }}</td>
+          <td class="role">{{ session?.role }}</td>
+          <td class="logon-time">{{ session?.logonTime | date:'yyyy-MM-dd hh:mm:ss a' }}</td>
+          <td class="status">
+            <span class="icon" [ngClass]="session?.status?.toLowerCase()"></span>
+            <span class="text">{{ session?.status }}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="register-container">
+    <h3 class="breadcrumb header">
+      &nbsp;
+      <div class="breadcrumb-action bg-silver" (click)="clear()">Clear</div>
+    </h3>
+    <div class="register-header">
+      Activities
+    </div>
+    <div id="register" class="register-body">
+      <div class="item">
+        <span>
+          <strong>Logon: </strong> SysAdmin at {{ '2020-03-20T17:52:00' | date:'yyyy-MM-dd hh:mm:ss a' }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+</div>
